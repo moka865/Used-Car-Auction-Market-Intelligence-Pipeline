@@ -9,11 +9,11 @@ A full end-to-end data science project covering data ingestion, cleaning, featur
 ## 📋 Table of Contents
 
 - [Project Overview](#project-overview)
+- [Dashboard](#dashboard)
 - [Repository Structure](#repository-structure)
 - [Dataset](#dataset)
 - [Pipeline Stages](#pipeline-stages)
 - [Machine Learning Models](#machine-learning-models)
-- [Dashboard](#dashboard)
 - [Key Results](#key-results)
 - [Setup & Usage](#setup--usage)
 - [Dependencies](#dependencies)
@@ -28,6 +28,23 @@ A full end-to-end data science project covering data ingestion, cleaning, featur
 - Which vehicles are selling significantly below or above market value?
 - How do vehicle age, mileage, and condition drive price deviation from MMR?
 - Can we predict auction selling price with high accuracy?
+
+---
+
+## Dashboard
+
+A **Power BI dashboard** was built on top of `cleaned_auction_data.csv` to provide interactive market intelligence for stakeholders.
+
+<img width="1143" height="772" alt="Power BI Dashboard" src="https://github.com/user-attachments/assets/954ffaa1-669d-4099-a834-bea1c69dca44" />
+
+**Dashboard highlights:**
+- Market Signal breakdown (Undervalued / Fair Value / Overpriced) across Makes and States
+- Price vs. MMR deviation heatmaps by region and vehicle category
+- Depreciation curves filtered by AgeGroup and MileageGroup
+- Monthly auction price trend with volume overlay
+- Top undervalued inventory list — vehicles with the highest negative `PctDiff`
+
+> The dashboard consumes `cleaned_auction_data.csv` directly. Refresh the Power BI data source after re-running `notebook.ipynb` to reflect updated data.
 
 ---
 
@@ -147,23 +164,6 @@ import joblib
 model = joblib.load("best_model.pkl")
 predictions = model.predict(X_new)
 ```
-
----
-
-## Dashboard
-
-A **Power BI dashboard** was built on top of `cleaned_auction_data.csv` to provide interactive market intelligence for stakeholders.
-
-<img width="1143" height="772" alt="Power BI Dashboard" src="https://github.com/user-attachments/assets/954ffaa1-669d-4099-a834-bea1c69dca44" />
-
-**Dashboard highlights:**
-- Market Signal breakdown (Undervalued / Fair Value / Overpriced) across Makes and States
-- Price vs. MMR deviation heatmaps by region and vehicle category
-- Depreciation curves filtered by AgeGroup and MileageGroup
-- Monthly auction price trend with volume overlay
-- Top undervalued inventory list — vehicles with the highest negative `PctDiff`
-
-> The dashboard consumes `cleaned_auction_data.csv` directly. Refresh the Power BI data source after re-running `notebook.ipynb` to reflect updated data.
 
 ---
 
